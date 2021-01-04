@@ -1,0 +1,29 @@
+<app-loading *ngIf="loading" ></app-loading>
+<h1 class="animated fadeIn">
+    Hombre
+</h1>
+<hr>
+<div class="row animated fadeIn">
+<div class="card-columns">
+    <div class="card" *ngFor="let prenda of ropa; let i = index" style="width: 18rem;">
+        <img [src]="prenda.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ prenda.nombre }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{prenda.talle}}</li>
+          <li class="list-group-item">{{prenda.genero}}</li>
+          <li class="list-group-item"> $ {{prenda.valor}}</li>
+        </ul>
+        <div class="card-body">
+          <button type="button" 
+                 class="btn btn-outline-primary"
+                name="btn" 
+                (click)="verRopa(i)">Ver Remera...</button>
+        </div>
+      </div>
+    
+</div>
+
+
+</div>

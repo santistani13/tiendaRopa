@@ -1,0 +1,30 @@
+<h1>Buscando:</h1>
+<hr>
+<div class="row" *ngIf="ropa.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados para el termino: 
+
+        </div>
+    </div>
+
+</div>
+<div class="card-columns">
+
+    <div class="card animated fadeIn" *ngFor="let prenda of ropa; let i = index">
+        <img [src]="prenda.img"  width="200px" class="card-img-top img-fluid" [alt]="prenda.nombre">
+        <div class="card-body">
+          <h5 class="card-title">{{ prenda.nombre }}</h5>
+          <p class="card-text">{{ prenda.talle }}</p>
+          <p class="card-text">{{ prenda.genero }}</p>
+          <p class="card-text"> $ {{ prenda.valor }}</p>
+          <button class="btn btn-outline-primary" type="button" (click)="verRemera( i )">Ver remera... </button>
+        </div>
+      </div>
+
+
+
+
+
+
+</div>

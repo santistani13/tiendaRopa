@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectedRopaService } from '../../services/tienda-productos-buy'; 
 import { SelectedRopa } from '../../services/tienda-productos-buy';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-carrito-compras'
+  selector: 'app-carrito-compras',
+  templateUrl: './carrito-compras.component.html',
+  styleUrls: ['./carrito-compras.component.css'] 
 })
 export class CarritoComprasComponent implements OnInit {
 loading: boolean;
- private ropas: SelectedRopa [] = [];
+ ropas: SelectedRopa [] = [];
  mostrarBtn: boolean;
  
 
-  constructor( private selectedRopa: SelectedRopaService ) { 
+  constructor( private selectedRopa: SelectedRopaService,
+               private router: Router ) { 
     this.loading = true;
     this.loading = false;
     this.mostrarBtn = false;
@@ -27,9 +31,10 @@ loading: boolean;
 
   borrarDeLista( i: number ){
     this.ropas.splice( i, 1 );
-    if ( this.ropas.length > 0 ) {
-      this.mostrarBtn = true;
-     }
+  }
+
+  comprar(){
+    this.router.navigate(["/pago-ropa"]);
   }
 
 }

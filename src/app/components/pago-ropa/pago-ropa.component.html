@@ -1,0 +1,126 @@
+<app-loading *ngIf="loading"></app-loading>
+<h1 class="animated fadeIn">Pago</h1>
+<hr>
+<div class="animated fadeIn">
+    <div>
+        <h4>Contacto</h4>
+        <form autocomplete="off" #formulario="ngForm" [ngSubmit]="guardar( formulario )" >
+            <table>
+                <tr>
+                    <td>Nombre: <input 
+                                 type="text"
+                                 name="nombre" 
+                                 placeholder="Nombre"
+                                 [ngModel]="usuario.nombre"
+                                 [class.is-invalid]="nombre.invalid && nombre.touched"
+                                 required
+                                 minlength="5"
+                                 #nombre="ngModel"
+                                 class="form-control"> 
+             <small *ngIf="nombre.invalid && nombre.touched"
+        class="form-text text-danger">Ingrese 5 letras</small></td>
+                </tr>
+                 <tr>
+                        <td>Apellido: <input 
+                                       type="text"
+                                        name="apellido"
+                                       [ngModel]="usuario.apellido"
+                                        placeholder="Apellido"
+                                        #apellido="ngModel"
+                                        required
+                                        minlength="5"
+                                        [class.is-invalid]="apellido.invalid && apellido.touched"
+                                        class="form-control">
+              <small *ngIf="apellido.invalid && apellido.touched"
+                 class="form-text text-danger">Ingrese 5 letras</small> </td>
+                </tr>
+                <tr>
+                    <td> Email: <input
+                                 type="email"
+                                  name="email"
+                                  [ngModel]="usuario.email"
+                                   placeholder="Email"
+                                   #email="ngModel"
+                                   required
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                   [class.is-invalid]="email.invalid && email.touched"
+                                   class="form-control">
+                 <small *ngIf="email.invalid && email.touched"
+                 class="form-text text-danger">Ingrese 5 letras</small> </td>
+                </tr>
+                <tr>   
+                    <td>Contraseña <input 
+                                   type="password" 
+                                   name="contraseña"
+                                   [ngModel]="usuario.contraseña"
+                                    placeholder="Contraseña"
+                                   #contraseña="ngModel"
+                                   minlength="5"
+                                   required
+                                    [class.is-invalid]="contraseña.touched"
+                                    class="form-control">
+                  <small *ngIf="contraseña.invalid && contraseña.touched"
+                   class="form-text text-danger">Ingrese 5 letras</small> </td>
+                </tr>
+                
+            </table>
+        </form>
+    </div>
+    <div>
+    <h4>
+        Envio 
+    </h4>
+    <form>
+        <table>
+            <tr>
+                <td> Codigo postal: <input 
+                                     type="text"
+                                      name="codigoPostal"
+                                      placeholder="CP"
+                                      class="form-control" >
+            </tr>
+            <tr>
+                <td> Ciudad: <input
+                              type="text"
+                               name="ciudad"
+                               placeholder="Ciudad"
+                               class="form-control" >
+            </tr>
+            <tr>
+                <td> Direccion: <input
+                                  type="text"
+                                 name="direccion"
+                                  placeholder="Direccion"
+                                  class="form-control">
+            </tr>
+        </table>
+    </form>
+    </div>
+    <div>
+        <h4>Tarjeta de credito</h4>
+        <form>
+            <h5>Bancos:</h5> <select name="bancos">
+                <option value="ciudad">Ciudad</option>
+                <option value="frances">Frances</option>
+                <option value="superville">Superville</option>
+                <option value="hsbc">HSBC</option>
+                <option value="patagonia">Patagonia</option>
+            </select>
+            <h5>Tarjeta:</h5>
+            <form>
+                <tr>
+                    <td> <input type="radio" name="tarjeta"> <img src="assets/visa.png" alt="visa" width="70px">
+                     <input type="radio" name="tarjeta" class="ml-2" > <img src="assets/mastercard.jpg" alt="mastercard" width="70px"> </td>
+                </tr>
+                <br>
+                <tr>
+                    <td> Numero de tarjeta: <input type="text" name="numero" > </td> 
+                </tr>
+                <tr>
+                    <td> Codigo de seguridad: <input type="text" name="seguridad"> </td>
+                </tr>
+            </form>
+        </form>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Comprar</button>
+</div>

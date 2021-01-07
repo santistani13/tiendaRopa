@@ -4,6 +4,7 @@ import { CarritoComprasComponent } from './components/carrito-compras/carrito-co
 import { HomeComponent } from './components/home/home.component';
 import { RopaComponent } from './components/ropa/ropa.component';
 import { SearchComponent } from '../../src/app/componenets/search/search.component';
+import { PagoRopaComponent } from './components/pago-ropa/pago-ropa.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'ropa/:id', component: RopaComponent },
   { path: 'search/:termino', component: SearchComponent },
   { path: 'carrito-compras', component: CarritoComprasComponent },
-  { path: '**', redirectTo: 'home' }
+  { path: 'pago-ropa', component: PagoRopaComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({

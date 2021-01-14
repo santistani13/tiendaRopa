@@ -31,16 +31,6 @@
                                 valido</small>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Contraseña <input type="password" name="contrasenia" [ngModel]="usuario.contrasenia"
-                                placeholder="Contraseña" #contraseña="ngModel" minlength="3" required
-                                [class.is-invalid]="contrasenia.touched" class="form-control">
-                            <small *ngIf="contrasenia.invalid && contrasenia.touched"
-                                class="form-text text-danger">Ingrese 3
-                                letras</small>
-                        </td>
-                    </tr>
-
                 </table>
             </form>
         </div>
@@ -52,21 +42,32 @@
                 <table>
                     <tr>
                         <td> Codigo postal: <input type="text" name="codigoPostal" placeholder="CP"
-                                class="form-control">
+                                [ngModel]="usuario.codigoPostal" required #codigoPostal="ngModel" minlength="4"
+                                [class.is-invalid]="codigoPostal.invalid && codigoPostal.touched" class="form-control">
+                            <small *ngIf="codigoPostal.invalid && codigoPostal.touched"
+                                class="form-text text-danger">Ingrese un codigo postal valido</small>
                     </tr>
                     <tr>
-                        <td> Ciudad: <input type="text" name="ciudad" placeholder="Ciudad" class="form-control">
+                        <td> Ciudad: <input type="text" name="ciudad" placeholder="Ciudad" [ngModel]="usuario.ciudad"
+                                required #ciudad="ngModel" minlength="4"
+                                [class.is-invalid]="ciudad.invalid && ciudad.touched" class="form-control">
+                            <small *ngIf="ciudad.invalid && ciudad.touched" class="form-text text-danger">Ingrese una
+                                ciudad valida</small>
                     </tr>
                     <tr>
                         <td> Direccion: <input type="text" name="direccion" placeholder="Direccion"
-                                class="form-control">
+                                [ngModel]="direccion.usuario" #direccion="ngModel" required minlength="4"
+                                [class.is-invalid]="direccion.invalid && direccion.touched" class="form-control">
+                            <small *ngIf="direccion.invalid && direccion.touched" class="form-text text-danger">Ingrese
+                                una
+                                direccion valida</small>
                     </tr>
                 </table>
             </form>
         </div>
         <div>
             <h4>Tarjeta de credito</h4>
-            <form>
+            <form autocomplete="off" #formulario="ngForm" (ngSubmit)="guardar( formulario )">
                 <h5>Bancos:</h5> <select name="bancos">
                     <option value="ciudad">Ciudad</option>
                     <option value="frances">Frances</option>
@@ -75,7 +76,7 @@
                     <option value="patagonia">Patagonia</option>
                 </select>
                 <h5>Tarjeta:</h5>
-                <form>
+                <form autocomplete="off" #formulario="ngForm" (ngSubmit)="guardar( formulario )">
                     <tr>
                         <td> <input type="radio" name="tarjeta"> <img src="assets/visa.png" alt="visa" width="70px">
                             <input type="radio" name="tarjeta" class="ml-2"> <img src="assets/mastercard.jpg"
@@ -84,7 +85,10 @@
                     </tr>
                     <br>
                     <tr>
-                        <td> Numero de tarjeta: <input type="text" name="numero" class="form-control"> </td>
+                        <td> Numero de tarjeta: <input type="text" name="numero" [ngModel]="codigoTarjeta"
+                                #codigoTarjeta="ngModel" required minlength="3" maxlength="3"
+                                [class.is-invalid]="codigoTarjeta.invalid && codigoTarjeta.touched"
+                                class="form-control"> </td>
                     </tr>
                     <tr>
                         <td> Codigo de seguridad: <input type="text" name="seguridad" class="form-control"> </td>
@@ -96,6 +100,6 @@
         <button type="submit" class="btn btn-outline-primary">Comprar</button>
     </div>
     <div class="spacing">
-        
+
     </div>
 </div>

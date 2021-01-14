@@ -12,7 +12,11 @@ export class PagoRopaComponent implements OnInit {
 nombre: '',
 apellido: '',
 email: '',
-contrasenia: ''
+codigoPostal: '' ,
+ciudad:'',
+direccion: '',
+numeroTarjeta:'',
+codigoTarjeta:''
 }
 
 ropas: SelectedRopa [] = [];
@@ -20,11 +24,12 @@ loading: boolean;
   constructor( private selectedRopa: SelectedRopaService ) { 
     this.loading = true;
     this.loading = false;
+    console.log( this.selectedRopa.getRopas() );
+    this.ropas = this.selectedRopa.getRopas();
   }
 
   ngOnInit(): void {
-    console.log( this.selectedRopa.getRopas() );
-    this.ropas = this.selectedRopa.getRopas();
+    
   }
 guardar( formulario:NgForm ){
 if ( formulario.invalid ){

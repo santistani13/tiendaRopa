@@ -56,7 +56,7 @@
                     </tr>
                     <tr>
                         <td> Direccion: <input type="text" name="direccion" placeholder="Direccion"
-                                [ngModel]="direccion.usuario" #direccion="ngModel" required minlength="4"
+                                [ngModel]="usuario.direccion" #direccion="ngModel" required minlength="4"
                                 [class.is-invalid]="direccion.invalid && direccion.touched" class="form-control">
                             <small *ngIf="direccion.invalid && direccion.touched" class="form-text text-danger">Ingrese
                                 una
@@ -67,33 +67,42 @@
         </div>
         <div>
             <h4>Tarjeta de credito</h4>
+
+            <h5>Bancos:</h5> <select name="bancos">
+                <option value="ciudad">Ciudad</option>
+                <option value="frances">Frances</option>
+                <option value="superville">Superville</option>
+                <option value="hsbc">HSBC</option>
+                <option value="patagonia">Patagonia</option>
+            </select>
+            <h5>Tarjeta:</h5>
             <form autocomplete="off" #formulario="ngForm" (ngSubmit)="guardar( formulario )">
-                <h5>Bancos:</h5> <select name="bancos">
-                    <option value="ciudad">Ciudad</option>
-                    <option value="frances">Frances</option>
-                    <option value="superville">Superville</option>
-                    <option value="hsbc">HSBC</option>
-                    <option value="patagonia">Patagonia</option>
-                </select>
-                <h5>Tarjeta:</h5>
-                <form autocomplete="off" #formulario="ngForm" (ngSubmit)="guardar( formulario )">
-                    <tr>
-                        <td> <input type="radio" name="tarjeta"> <img src="assets/visa.png" alt="visa" width="70px">
-                            <input type="radio" name="tarjeta" class="ml-2"> <img src="assets/mastercard.jpg"
-                                alt="mastercard" width="70px">
-                        </td>
-                    </tr>
-                    <br>
-                    <tr>
-                        <td> Numero de tarjeta: <input type="text" name="numero" [ngModel]="codigoTarjeta"
-                                #codigoTarjeta="ngModel" required minlength="3" maxlength="3"
-                                [class.is-invalid]="codigoTarjeta.invalid && codigoTarjeta.touched"
-                                class="form-control"> </td>
-                    </tr>
-                    <tr>
-                        <td> Codigo de seguridad: <input type="text" name="seguridad" class="form-control"> </td>
-                    </tr>
-                </form>
+                <tr>
+                    <td> <input type="radio" name="tarjeta"> <img src="assets/visa.png" alt="visa" width="70px">
+                        <input type="radio" name="tarjeta" class="ml-2"> <img src="assets/mastercard.jpg"
+                            alt="mastercard" width="70px">
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td> Numero de tarjeta: <input type="text" name="numeroTarjeta" placeholder="Numero de la tarjeta"
+                            [ngModel]="usuario.numeroTarjeta" #numeroTarjeta="ngModel" required minlength="16"
+                            [class.is-invalid]="numeroTarjeta.invalid && numeroTarjeta.touched" class="form-control">
+                        <small *ngIf="numeroTarjeta.invalid && numeroTarjeta.touched"
+                            class="form-text text-danger">Ingrese
+                            una tarjeta valida</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Codigo de seguridad: <input type="text" name="seguridad" placeholder="Codigo de la tarjeta"
+                            [ngModel]="usuario.codigoTarjeta" required maxlength="3" minlength="3"
+                            #codigoTarjeta="ngModel" [class.is-invalid]="codigoTarjeta.invalid && codigoTarjeta.touched"
+                            class="form-control">
+                        <small *ngIf="codigoTarjeta.invalid && codigoTarjeta.touched"
+                            class="form-text text-danger">Ingrese
+                            un codigo valido</small>
+                    </td>
+                </tr>
             </form>
         </div>
         <br>
@@ -114,7 +123,7 @@
                     <p>{{ ropa.genero }}</p>
                     <hr>
                     <p> $ {{ ropa.valor }}</p>
-        
+
                 </div>
-    </div>
-</div>
+            </div>
+        </div>

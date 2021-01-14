@@ -25,3 +25,9 @@
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.spacing {
+    margin-left: 200px;
+    margin-top: 50px;
+   
+}

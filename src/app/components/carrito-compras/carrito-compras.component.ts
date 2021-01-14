@@ -12,6 +12,9 @@ export class CarritoComprasComponent implements OnInit {
 loading: boolean;
  ropas: SelectedRopa [] = [];
  mostrarBtn: boolean;
+ ropa: any = {};
+ 
+ 
  
 
   constructor( private selectedRopa: SelectedRopaService,
@@ -35,6 +38,7 @@ loading: boolean;
 
   comprar(){
     this.router.navigate(["/pago-ropa"]);
+    this.selectedRopa.confirmarCompra(this.ropa)
   }
 
 }

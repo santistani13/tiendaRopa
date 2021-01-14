@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { SelectedRopa, SelectedRopaService } from 'src/app/services/tienda-productos-buy';
 
 @Component({
   selector: 'app-pago-ropa',
@@ -10,15 +11,20 @@ export class PagoRopaComponent implements OnInit {
  usuario = {
 nombre: '',
 apellido: '',
-correo: '',
-contraseña: ''
+email: '',
+contrasenia: ''
 }
+
+ropas: SelectedRopa [] = [];
 loading: boolean; 
-  constructor(  ) { 
+  constructor( private selectedRopa: SelectedRopaService ) { 
     this.loading = true;
+    this.loading = false;
   }
 
   ngOnInit(): void {
+    console.log( this.selectedRopa.getRopas() );
+    this.ropas = this.selectedRopa.getRopas();
   }
 guardar( formulario:NgForm ){
 if ( formulario.invalid ){

@@ -6,24 +6,28 @@ export class SelectedRopaService {
   private ropas: SelectedRopa[] = [
   ];
   constructor() {
-   // this.cargarRopa();
+    // this.cargarRopa();
   }
   getRopas() {
     return this.ropas;
   }
-  addRopa(ropa:SelectedRopa){ 
-      this.ropas.push(ropa);
-      this.guardarRopa()
+  addRopa(ropa: SelectedRopa) {
+    this.ropas.push(ropa);
+    this.guardarRopa()
   }
 
-  guardarRopa(){
-    localStorage.setItem( 'data', JSON.stringify(this.ropas)  );
+  guardarRopa() {
+    localStorage.setItem('ropa', JSON.stringify(this.ropas));
   }
-  cargarRopa(){
-   //if (  localStorage.getItem( 'data') ){
-     // this.ropas = JSON.parse( localStorage.getItem( 'data') );
-    }
+  cargarRopa() {
+    // if (  localStorage.getItem( 'ropa') ){
+    //  this.ropas = JSON.parse( localStorage.getItem( 'ropa') ) ;
   }
+  confirmarCompra( ropa: SelectedRopa ){
+    this.ropas.push(ropa);
+  }
+}
+
 
 export interface SelectedRopa {
   nombre: string;

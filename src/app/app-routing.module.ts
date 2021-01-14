@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'search/:termino', component: SearchComponent },
   { path: 'carrito-compras', component: CarritoComprasComponent },
   { path: 'pago-ropa', component: PagoRopaComponent },
+
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

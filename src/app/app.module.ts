@@ -16,6 +16,7 @@ import { SelectedRopaService } from '../../src/app/services/tienda-productos-buy
 import { PagoRopaComponent } from './components/pago-ropa/pago-ropa.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

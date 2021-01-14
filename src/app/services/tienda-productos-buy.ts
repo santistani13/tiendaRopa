@@ -23,9 +23,6 @@ export class SelectedRopaService {
     // if (  localStorage.getItem( 'ropa') ){
     //  this.ropas = JSON.parse( localStorage.getItem( 'ropa') ) ;
   }
-  confirmarCompra( ropa: SelectedRopa ){
-    this.ropas.push(ropa);
-  }
 }
 
 

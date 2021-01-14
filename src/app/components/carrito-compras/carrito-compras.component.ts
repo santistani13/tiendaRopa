@@ -38,7 +38,6 @@ loading: boolean;
 
   comprar(){
     this.router.navigate(["/pago-ropa"]);
-    this.selectedRopa.confirmarCompra(this.ropa)
   }
 
 }
